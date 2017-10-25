@@ -1,0 +1,14 @@
+{% extends "admin.html.twig" %}
+
+{% block body %}
+<h2>Category: edit</h2>
+<form method="post" action="{{path('category_update', {'id':category.id})}}">
+	<label for="name">Name</label>
+	<input type="text" name="name" value="{{category.name}}" />
+	<br />
+	<label for="url">Url</label>
+	<input type="text" name="url" value="{{category.url}}" />
+	<br />
+	<input type="submit" value="Update" />
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+<h2>Liste des produits</h2>
+
+{{form_start(form)}}
+	{#{form_widget}#}
+	<input type="submit">
+{{form_end(form)}}
+
+{% endblock %}

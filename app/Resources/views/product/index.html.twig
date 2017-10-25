@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+<h2>Liste des produits</h2>
+
+{{ form_start(form) }}
+
+{% for p in products %}
+	<div>id = {{p.id}} : nom ={{ p.name }} : presentation = {{p.presentation}} : detail = {{p.details}}</div>
+{% endfor %}
+
+{{ form_end(form) }}
+
+{% endblock %}

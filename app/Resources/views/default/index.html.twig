@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<ul>
+{% for category in categories %}
+    <li>
+    {#<a href="{{ category.name}}">{{ category.name | upper }}</a>#}
+    <a href="{{ category.url }}">{{ category.name | upper }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

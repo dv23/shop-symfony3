@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<form method="post" action="clients/new" >
+	<label for="name">Name</label>
+	<input name="name" type="text"/>
+	<br/>
+	<label for="age">Age</label>
+	<input name="age" type="text" />
+	<br />
+	<input type="submit" value="Save" />
+</form> 
+// lien home
+
+
+<ul>
+{% for client in clients %}
+	<li>
+		/**a commenter/<a href="/clients/{{client.id}}/delete">Delete</a>**
+		<a href="{{path('client_delete',{'id':client.id}) }}">delete</a>
+		{{ client.name }} : 
+		<span class="age">{{ client.age}} ans </span> 
+		</li>
+{% endfor %}
+</ul>
+{% endblock %}

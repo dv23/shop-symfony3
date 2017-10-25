@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome !{% endblock %}</title>
+        
+        <link rel="stylesheets" href="{{asset('css/styles.css')}}">
+        {% block stylesheets %} {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico') }}" />
+        
+        <style>
+        .menu{
+            color: red;
+            }
+        </style>
+    </head>
+    <body>
+    <div>
+        <a href="{{ path ('homepage')}}">Home</a>
+        <a href="{{ path ('clients')}}">Clients</a>
+        </div>
+        {% block body %}{% endblock %}
+        {% block menu %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
