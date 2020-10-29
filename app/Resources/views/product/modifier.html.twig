@@ -1,0 +1,41 @@
+{% extends "admin.html.twig" %}
+
+{% block body %}
+<h2>Product: edit</h2>
+<form method="post" action="{{path('product_update', {'id':product.id})}}">
+	<label for="name">Name</label>
+	<input type="text" name="name" value="{{product.name}}" />
+	<br />
+	
+	<label for="presentation">Presentation</label>
+	<input type="text" name="presentation" value="{{product.presentation}}" />
+	<br />
+
+	<label for="price">Price</label>
+	<input type="text" name="price" value="{{product.price}}" />
+	<br />
+
+	<label for="stock">Stock</label>
+	<input type="text" name="stock" value="{{product.stock}}" />
+	<br />
+
+	<label for="techs">Techs</label>
+	<input type="text" name="techs" value="{{product.techs}}" />
+	<br />
+
+	<label for="details">Details</label>
+	<input type="text" name="details" value="{{product.details}}" />
+	<br />
+	
+	<label for="url">Url</label>
+	<input type="text" name="url" value="{{product.url}}" />
+	<br />
+
+	<label for="category">Categorie</label>
+	<input type="extt" name="category" value="{{product.category}}" />
+	<br />
+
+	<input type="submit" value="Update" />
+
+</form>
+{% endblock %}

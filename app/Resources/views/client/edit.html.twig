@@ -1,0 +1,14 @@
+{% extends "admin.html.twig" %}
+
+{% block body %}
+
+<h2>client: edit</h2>
+
+<div class ="container mt-4">
+	<h1> Editer le clit </h1>
+
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+	{{ form_end(form) }}
+	<button clas="btn btn-primary">bouton update</button>
+{% endblock %}

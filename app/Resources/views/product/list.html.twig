@@ -1,0 +1,116 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	{#-
+	<form method="post" >
+	<label for="name">Name</label>
+	<input type="text" name="name"/>
+	<br />
+	<label for="presentation">Presentation</label>
+	<input type="text" name="presentation"/>
+	<br />
+	<label for="url">Url</label>
+	<input type="text" name="url"/>
+	<br />
+	<input type="submit" value="Save" />
+	</form>
+	-#}
+<div id= "message"></div>
+
+<div class="container mt-4">
+
+	<h2>les Produits Par Presentation
+Price
+Stock
+Techs
+Details
+Url
+Categorie</h2>
+
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Presentation</th>
+			<th>Price</th>
+			<th>Stock</th>
+			<th>Techs</th>
+			<th>Details</th>
+			<th>Url</th>
+			<th>Category</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for product in products %}
+		<tr>
+
+		<td>{#{ product.id }#}
+		<a href="/admin/products/{{product.id}}/edit" class="btn btn-primary">Edit(form_start ko)</a>
+			<a href="/admin/products/{{product.id}}/modifier">Modifier(Update)</a> 
+			{#<input type="submit" value="Modifier"/>
+      			<form action="{{ path('product_update', {id:product.id}) }}">
+        		<input type="hidden" name="_method" value="UPDATE">
+      			</form>#}
+			{#- <a href="{{path('product_delete',{'id':product.id})}}">Delete</a> -#}
+			<hr>
+		 	{{ product.name }}
+			{#<div class="col-3">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-text">
+						<h5 class="card-title">
+							<a href="#">{{ product.name }}</a>
+						</h5>
+					</div>
+				</div>
+			</div> #}
+		</td>
+
+		<td> {#{ product.presentation }#}
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-text">
+							<a href="#">{{product.presentation}}</a>
+						</h5>
+					</div>
+				</div>	
+		</td>
+		<td> {{ product.price }}
+		</td>
+		<td> {{ product.stock }}
+		</td>
+		<td> {{ product.techs }}
+		</td>
+		<td> {{ product.details }}
+		</td>
+		<td> {{ product.url }}
+		</td>
+		<td> {{ product.category }}
+		</td>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	//alert('bravo !');
+	//$('ul').hide(); // jq execute
+	$('.delete').click(function()
+	{
+	//var id = $(this).attr('id');
+	var elem = $(this);
+	var id = elem.attr('id'); // recup id
+		//console.log(id);
+		//console.log('click');
+		$.ajax({url:'admin/products/'+ id +'/delete',success: function() {
+			elem.parent().remove();
+			//alert('suppression réussie');
+			$('#message').html("<strong>Suppression réussie</strong>");
+			.animate({opacity: 0}, 4000);
+		}
+			});
+	}	);
+</script>
+
+{% endblock %}
