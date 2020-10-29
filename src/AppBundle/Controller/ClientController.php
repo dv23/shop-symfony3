@@ -8,8 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 use AppBundle\Entity\Client;
 
+use AppBundle\Form\ClientType;
     /**
      * @Route("/users")
      */
@@ -29,7 +31,7 @@ use AppBundle\Entity\Client;
         $clients = $this->getDoctrine()->getRepository('AppBundle:Client')->findAllSorted();
         //$clients = $this->getDoctrine()->getRepository('AppBundle:Client')->findAll();
 
-        return $this->render('client/index.html.twig', array('title' => 'Liste des clients',
+        return $this->render('client/index.html.twig', array('title' => 'Faites vous connaitre',
         	'clients' => $clients,
         	));
     }
@@ -96,5 +98,21 @@ use AppBundle\Entity\Client;
         // générer formulaire automatique  à partir entity client et transmettre au template
         return $this->render('client/form.html.twig', array());
     }
+    
+    //* @Method("POST")
+    /**
+     * @Route("/clients/{id}/edit", name="client_edit")
+     *
+     */
+    public function editAction($id)
+        {
+        $client = new Client();  
+        $form = $this->createForm(ClientType::class, $client);
+        $cliente = $this->getDoctrine()->getRepository('AppBundle:Client')->find($id);
+        //var_dump($client);
+        //'cliente' => $cliente,
+          return $this->render('client/edit.html.twig', array('cliente' => $cliente,'form' => $form->createView() ));
+          //  ));
+        }
 
 }

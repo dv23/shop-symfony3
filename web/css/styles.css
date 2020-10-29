@@ -5,3 +5,9 @@ color: green
 .age{
 	color:red;
 }
+
+tr:nth-child(even){
+background: blue;
+/* text-align:center;   ajour 26 12 2018 cf ifocop*/
+/*------------------*/
+}

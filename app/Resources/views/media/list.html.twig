@@ -3,11 +3,13 @@
 {% block body %}
 
 <table>
+
 {% for m in media %}
-	<tr>
+	<table border=1>
+	<tr> <!-- n ligne -->
 		<td>{{m.file}} : produit = {{m.product}} </td>
-		<td>
-			<img src="/files/{{m.file}}" alt="{{m.alt}}" />
+		<td> <!-- cellule -->
+			<img src="/files/{{m.file}}" title="media" alt="{{m.alt}}" />
 		</td>
 	</tr>
 {% endfor %}

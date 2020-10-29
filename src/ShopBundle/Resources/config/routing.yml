@@ -1,3 +1,0 @@
-shop_homepage:
-    path:     /
-    defaults: { _controller: ShopBundle:Default:index }

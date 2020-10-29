@@ -47,7 +47,7 @@ class MediaController extends Controller
     }
 
     /**
-    * @Route("/admin/media")
+    * @Route("/admin/media", name="medias")
     */
     public function listAction()
     {

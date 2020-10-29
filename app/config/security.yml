@@ -14,8 +14,15 @@ security:
             security: false
 
         main:
-            anonymous: ~
+            pattern:   ^/
+            anonymous: true
+            # - anonymous: ~
             # activate different ways to authenticate
+#Dans les trois petites lignes que je viens de rajouter : maercredi 24 avril 2019
+# cf 3 - Sécurité et gestion des utilisateurs : openclassroom
+ #   main est le nom du pare-feu. Il s'agit juste d'un identifiant unique, mettez en réalité ce que vous voulez.
+  #  pattern: ^/est un masque d'URL. Cela signifie que toutes les URL commençant par « / » (c'est-à-dire notre site tout entier) sont protégées par ce pare-feu. On dit qu'elles sont derrière le pare-feumain.
+   # anonymous: true accepte les utilisateurs anonymes. Nous protégerons nos ressources grâce aux rôles.
 
             # http_basic: ~
             # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate

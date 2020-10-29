@@ -71,8 +71,10 @@ class Product
     private $url;
 
     /**
+     ** @var string
      * @var int
      *
+     * 1272019@ORM\Column(name="category", type="text")
      * @ORM\Column(name="category", type="integer")
      */
     private $category;
@@ -279,5 +281,11 @@ class Product
     {
         return $this->category;
     }
+    
+    /**
+     * relation onetoOne avec media
+     *
+     * @ORM\OneToOne(targetEntity="\AppBundle\Entity\Media", cascade={"persist", "remove"})
+     */
+    private $media;
 }
-

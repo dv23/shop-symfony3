@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block body %}
 <h1>{{ title }}</h1>
@@ -12,17 +12,15 @@
 	<br />
 	<input type="submit" value="Save" />
 </form> 
-// lien home
-
 
 <ul>
 {% for client in clients %}
 	<li>
-		/**a commenter/<a href="/clients/{{client.id}}/delete">Delete</a>**
-		<a href="{{path('client_delete',{'id':client.id}) }}">delete</a>
+		<a href="{{ path('client_delete',{'id':client.id}) }}">delete</a>
+		<a href="/users/clients/{{client.id}}/edit">edit</a> 
 		{{ client.name }} : 
-		<span class="age">{{ client.age}} ans </span> 
-		</li>
+		<span class="age">{{ client.age }} ans </span> 
+	</li>
 {% endfor %}
 </ul>
 {% endblock %}

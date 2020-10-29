@@ -7,3 +7,12 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+# voir openclassroom quizz “oc_platform.notification.mailer” qui permet d’envoyer un e-mail à une adresse donnée (définie dans parameters.yml ), et dont la classe est OC\PlatformBundle\Notification\Mailer
+    oc_platform.notification.mailer:
+#        class: OC\PlatformBundle\Notification\Mailer
+        class: AppBundle\PlatformBundle\Notification\Mailer
+
+        arguments:
+            - “@mailer”
+#            - %oc_platform.notification.email_recipient%

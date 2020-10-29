@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function indexAction()
     {    // recup categories
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->findAll();
-        /**return $this->render('category/index.html.twig', array('title' => 'Liste desCategories','categories' => $categories,));**/
+        /*return $this->render('category/index.html.twig', array('title' => 'Liste desCategories','categories' => $categories,));**/
 
         return $this->render('category/index.html.twig', array('categories' => $categories,));
     }
@@ -77,7 +77,7 @@ class CategoryController extends Controller
             // . symfony se charge de recuperation
         $params = $request->request->all();
         $category->setName($params['name']);
-
+        $category->setUrl($params['url']);
         $em = $this->getDoctrine()->getManager();
         $em->persist($category);
         $em->flush();

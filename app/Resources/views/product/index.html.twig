@@ -1,12 +1,16 @@
 {% extends 'admin.html.twig' %}
 
 {% block body %}
-<h2>Liste des produits</h2>
+	<div class="jumbotron text-center">
+		<h1> shop vd</h1> 
+		<h2>Liste des produits</h2>
+	</div>
 
 {{ form_start(form) }}
 
 {% for p in products %}
-	<div>id = {{p.id}} : nom ={{ p.name }} : presentation = {{p.presentation}} : detail = {{p.details}}</div>
+	<div id = {{p.id}} : nom ={{ p.name }} : presentation = {{p.presentation}} : price = {{p.price}}: detail = {{p.details}}</div>
+		
 {% endfor %}
 
 {{ form_end(form) }}
